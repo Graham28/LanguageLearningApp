@@ -1,4 +1,5 @@
 ﻿using Plugin.Maui.Audio;
+using Domain;
 namespace LanguageLearningApp;
 
 public partial class MainPage : ContentPage
@@ -10,13 +11,18 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
+	public void Correct(object sender, EventArgs e)
+	{
+		Word.TextColor = Colors.Green;
+	}
 
 	private async void OnImageOneClicked(object sender, EventArgs e)
 	{
 		//Word.Text = $"Apple";
-		
+		var word = new AppWord("","","", WordLanguage.English);
+		Correct(sender, e);
+		Thread.Sleep(500);
 		var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("apple.m4a"));
-		Thread.Sleep(250);
 		if (Word.Text == "Apple")
 		{
 			audioPlayer.Play();

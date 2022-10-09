@@ -13,7 +13,7 @@
                 x:Name="Word"
                 Text="Apple"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="54"
+                FontSize="72"
                 HorizontalOptions="Center" />
 
             <HorizontalStackLayout
